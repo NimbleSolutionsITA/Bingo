@@ -18,3 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/games/{id}', 'GameController@index')->name('game');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

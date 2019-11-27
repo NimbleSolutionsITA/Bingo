@@ -36,7 +36,7 @@ class Card extends Model
     ];
 
     /**
-     * The gamecards that belong to the game.
+     * The gamecards that belong to the card.
      */
     public function gamecards()
     {

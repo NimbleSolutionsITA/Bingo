@@ -16,11 +16,12 @@ class CreateGamesTable extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->dateTime('start_time');
-            $table->integer('ambo')->unsigned();
-            $table->integer('terna')->unsigned();
-            $table->integer('quaterna')->unsigned();
-            $table->integer('cinquina')->unsigned();
-            $table->integer('tombola')->unsigned();
+            $table->json('sequence')->nullable();
+            $table->integer('ambo')->unsigned()->nullable();
+            $table->integer('terna')->unsigned()->nullable();
+            $table->integer('quaterna')->unsigned()->nullable();
+            $table->integer('cinquina')->unsigned()->nullable();
+            $table->integer('tombola')->unsigned()->nullable();
             $table->string('status');
             $table->timestamps();
         });

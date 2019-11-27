@@ -37,11 +37,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function cards() {
-        return $this->hasMany('App\Card');
-    }
-
-    public function games() {
-        return $this->hasMany('App\Game');
+    /**
+     * The gamecards that belong to the user.
+     */
+    public function gamecards()
+    {
+        return $this->hasMany('App\Gamecard');
     }
 }

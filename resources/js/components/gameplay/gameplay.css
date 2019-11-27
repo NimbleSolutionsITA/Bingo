@@ -1,0 +1,14 @@
+.numbers-display tr {
+    width: 100%;
+}
+.numbers-display td {
+    border: 1px solid #999;
+    width: 10%;
+    padding-top: 10%;
+    position: relative;
+}
+.numbers-display td span {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+}

@@ -12,7 +12,7 @@ class Game extends Model
      * @var array
      */
     protected $fillable = [
-        'start_time', 'status', 'ambo', 'terna', 'quaterna', 'cinquina', 'tombola'
+        'start_time', 'status', 'sequence', 'ambo', 'terna', 'quaterna', 'cinquina', 'tombola'
     ];
 
     /**

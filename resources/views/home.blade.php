@@ -3,18 +3,16 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Partite</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
+                    <ul>
+                        @foreach($games as $game)
+                            <li><a href="/games/{{ $game->id }}">Partita del {{ $game->start_time  }}</a></li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
