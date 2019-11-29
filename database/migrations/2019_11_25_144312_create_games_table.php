@@ -17,12 +17,12 @@ class CreateGamesTable extends Migration
             $table->bigIncrements('id');
             $table->dateTime('start_time');
             $table->json('sequence')->nullable();
-            $table->integer('ambo')->unsigned()->nullable();
-            $table->integer('terna')->unsigned()->nullable();
-            $table->integer('quaterna')->unsigned()->nullable();
-            $table->integer('cinquina')->unsigned()->nullable();
-            $table->integer('tombola')->unsigned()->nullable();
-            $table->string('status');
+            $table->integer('ambo')->unsigned()->nullable()->default(0);
+            $table->integer('terna')->unsigned()->nullable()->default(0);
+            $table->integer('quaterna')->unsigned()->nullable()->default(0);
+            $table->integer('cinquina')->unsigned()->nullable()->default(0);
+            $table->integer('tombola')->unsigned()->nullable()->default(0);
+            $table->string('status')->default('available');
             $table->timestamps();
         });
     }

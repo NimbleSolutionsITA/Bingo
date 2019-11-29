@@ -9,9 +9,11 @@
 
                 <div class="card-body">
                     <ul>
-                        @foreach($games as $game)
-                            <li><a href="/games/{{ $game->id }}">Partita del {{ $game->start_time  }}</a></li>
-                        @endforeach
+                        @isset($games)
+                            @foreach($games as $game)
+                                <li><a href="/games/{{ $game->id }}">Partita del {{ $game->start_time  }}</a></li>
+                            @endforeach
+                        @endisset
                     </ul>
                 </div>
             </div>

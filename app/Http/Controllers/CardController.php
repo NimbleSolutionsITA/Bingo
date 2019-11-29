@@ -24,7 +24,7 @@ class CardController extends Controller
         foreach ($gamecards as $gamecard) {
             array_push($used_cards, $gamecard->card_id);
         }
-        $cards = Card::whereNotIn('id', $used_cards)->get();
+        $cards = Card::whereNotIn('id', $used_cards)->orderByRaw('RAND()')->take(15)->get();
         return $cards->toJson();
     }
 }

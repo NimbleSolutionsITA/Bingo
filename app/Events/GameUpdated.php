@@ -2,28 +2,30 @@
 
 namespace App\Events;
 
+use App\Game;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class UserCreated
+class GameUpdated implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $user;
+    public $game;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct(Game $game)
     {
-        $this->user = $user;
+        $this->game = $game;
     }
 
     /**
@@ -33,11 +35,11 @@ class UserCreated
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('channel-name');
+        return ['game'.$this->game->id];
     }
 
     public function broadcastAs()
     {
-        return 'my-event';
+        return 'game-updates';
     }
 }

@@ -14,16 +14,20 @@ class Card extends Component {
 
     handleAddNewGamecard (event) {
         event.preventDefault();
+        console.log('game id: ' + this.props.gameid);
+        console.log('card id: ' + this.props.item.id);
         axios
             .post('/api/gamecards', { game_id: this.props.gameid, card_id: this.props.item.id })
-            .then(response => { this.setState({ toGame: true })})
+            .then(response => { this.setState({ toGame: response.data.result });
+                console.log(response.data.result)
+            })
             .catch(error => console.log(error))
     };
 
     renderRow(row) {
         row = row ? row : [];
         if (this.state.toGame === true) {
-            return <Redirect to={'/game/' + this.props.gameid} />
+            return <Redirect to={'/games/' + this.props.gameid + '/play'} />
         }
         return (
             <tr>

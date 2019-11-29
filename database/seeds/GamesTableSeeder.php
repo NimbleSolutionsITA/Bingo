@@ -14,16 +14,28 @@ class GamesTableSeeder extends Seeder
     {
         DB::table('games')->insert([
             [
-                "status" => 'available',
-                "start_time" => Carbon::now()->addDay(),
+                "sequence" => '["attendi"]',
+                "start_time" => Carbon::now()->addHour()->addMinutes(2),
+                "created_at" => Carbon::now()->addHour(),
+                "updated_at" => Carbon::now()->addHour(),
             ],
             [
-                "status" => 'available',
-                "start_time" => Carbon::now()->addWeek(),
+                "sequence" => '["attendi"]',
+                "start_time" => Carbon::now()->addHour()->addMinutes(4),
+                "created_at" => Carbon::now()->addHour(),
+                "updated_at" => Carbon::now()->addHour(),
             ],
             [
-                "status" => 'available',
-                "start_time" => Carbon::now()->addMonth(),
+                "sequence" => '["attendi"]',
+                "start_time" => Carbon::now()->addHour()->addMinutes(6),
+                "created_at" => Carbon::now()->addHour(),
+                "updated_at" => Carbon::now()->addHour(),
+            ],
+            [
+                "sequence" => '["attendi"]',
+                "start_time" => Carbon::now()->addHour()->addDay(),
+                "created_at" => Carbon::now()->addHour(),
+                "updated_at" => Carbon::now()->addHour(),
             ]
         ]);
     }

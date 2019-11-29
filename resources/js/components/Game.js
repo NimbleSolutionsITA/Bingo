@@ -14,7 +14,7 @@ class Game extends Component {
                 <>
                     <Switch>
                         <Route exact path={'/games/' + this.props.gameid } component={() => <Cards gameid={this.props.gameid}/>} />
-                        <Route exact path={'/game/' + this.props.gameid } component={() => <Gameplay gameid={this.props.gameid}/>} />
+                        <Route exact path={'/games/' + this.props.gameid + '/play' } component={() => <Gameplay gameid={this.props.gameid}/>} />
                     </Switch>
                 </>
             </Router>

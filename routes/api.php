@@ -13,11 +13,16 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+    Route::get('cards', 'CardController@index');
+    Route::get('cards/{gameid}', 'CardController@game');
+    Route::get('card/{id}', 'CardController@show');
+    Route::post('gamecards', 'GamecardController@store');
+    Route::get('games/{id}', 'GameController@show');
+    Route::put('games/{id}', 'GameController@winner');
 });
-Route::get('cards', 'CardController@index');
-Route::get('cards/{gameid}', 'CardController@game');
-Route::get('card/{id}', 'CardController@show');
-Route::post('gamecards', 'GamecardController@store');
-Route::get('games/{id}', 'GameController@show');
+
+

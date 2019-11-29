@@ -9,12 +9,15 @@ use Illuminate\Support\Facades\Auth;
 class GamecardController extends Controller
 {
     public function store(Request $request) {
-        $gamecard = Gamecard::create([
-            'user_id' => 1,
-            'game_id' => $request->game_id,
-            'card_id' => $request->card_id,
-        ]);
-
-        return $gamecard->toJson();
+        $response = ['result' => false];
+        if (!Gamecard::where('game_id', $request->game_id)->where('card_id', $request->card_id)->first()) {
+            $gamecard = Gamecard::create([
+                'user_id' => Auth::id(),
+                'game_id' => $request->game_id,
+                'card_id' => $request->card_id,
+            ]);
+            $response = ['result' => true];
+        }
+        return $response;
     }
 }
